@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorry Malaika ❤️‍🩹🥺</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #000;
+  height: 100vh;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+#rain {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+.banner {
+  position: absolute;
+  top: -100px;
+  padding: 12px 22px;
+  color: white;
+  background: linear-gradient(135deg, #180000, #4a0010);
+  border: 1px solid #ff244b;
+  border-radius: 12px;
+  box-shadow: 0 0 14px #b00028;
+  font-size: 20px;
+  font-weight: bold;
+  white-space: nowrap;
+  animation: fall linear forwards;
+}
+@keyframes fall {
+  from {
+    transform: translateY(-100px) rotate(-5deg);
+  }
+  to {
+    transform: translateY(115vh) rotate(5deg);
+  }
+}
+</style>
+</head>
+<body>
+<div id="rain"></div>
+<script>
+const rain = document.getElementById("rain");
+const messages = [
+  "Sorry",
+  "Malaika",
+  "❤️‍🩹🥺"
+];
+function createBanner() {
+  const banner = document.createElement("div");
+  banner.className = "banner";
+  banner.textContent =
+    messages[Math.floor(Math.random() * messages.length)];
+  banner.style.left =
+    Math.random() * 75 + "%";
+  const duration = 4 + Math.random() * 4;
+  banner.style.animationDuration = duration + "s";
+  banner.style.fontSize =
+    (18 + Math.random() * 10) + "px";
+  rain.appendChild(banner);
+  setTimeout(() => {
+    banner.remove();
+  }, duration * 1000);
+}
+setInterval(createBanner, 180);
+</script>
+</body>
+</html>
